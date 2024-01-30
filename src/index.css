@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Enfonix;
+  src: url("/src/assets/font/EnfonixDEMO.otf") format("opentype");
+}
