@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-import HomeIcon from "./Icons/HomeIcon";
-import LaunchpadIcon from "./Icons/LaunchpadIcon";
+import { HomeIcon, LaunchpadIcon, PinklockIcon, AirdropIcon, StakingIcon, PrivateSaleIcon, BuyCryptoFiatIcon, BridgeIcon, LeaderBoardIcon, AntiBotIcon, MultiSenderIcon, DexviewIcon, PoolsAlertIcon, KYCAuditIcon, DocIcon, ShopIcon, TelegramIcon, TwitterIcon, FacebookIcon } from "./Icons";
 
 const Sidebar = () => {
     return (
-        <section className="flex flex-col">
+        <section className="flex flex-col border-r-[1px] border-[#FFF]">
             <div className="flex p-6 justify-center items-center gap-10 bg-white">
                 <svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <g clipPath="url(#clip0_1_104)">
@@ -35,14 +34,84 @@ const Sidebar = () => {
                         <LaunchpadIcon />
                         <p className="text-[#1A1A1A]">launchpads</p>
                     </div>
+                    <ChevronDownIcon className="w-6 h-6 text-[#1A1A1A]" />
+                </div>
+                <div className="flex px-6 py-4 justify-between items-center cursor-pointer hover:bg-[#1A1A1A]">
+                    <div className="flex items-center gap-3">
+                        <PinklockIcon />
+                        <p>pinklock</p>
+                    </div>
                     <ChevronDownIcon className="w-6 h-6" />
                 </div>
                 <div className="flex px-6 py-4 justify-between items-center cursor-pointer hover:bg-[#1A1A1A]">
                     <div className="flex items-center gap-3">
-                        <LaunchpadIcon />
-                        <p className="text-[#1A1A1A]">launchpads</p>
+                        <AirdropIcon />
+                        <p>airdrop</p>
                     </div>
                     <ChevronDownIcon className="w-6 h-6" />
+                </div>
+                <div className="flex px-6 py-4 justify-between items-center cursor-pointer hover:bg-[#1A1A1A]">
+                    <div className="flex items-center gap-3">
+                        <StakingIcon />
+                        <p>staking</p>
+                    </div>
+                    <ChevronDownIcon className="w-6 h-6" />
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <PrivateSaleIcon />
+                    <p>private sale</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <BuyCryptoFiatIcon />
+                    <p>buy crypto fiat</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <BridgeIcon />
+                    <p>bridge</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <LeaderBoardIcon />
+                    <p>leaderboard</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <AntiBotIcon />
+                    <p>anti-bot</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <MultiSenderIcon />
+                    <p>multi-sender</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <DexviewIcon />
+                    <p>dexview.com</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <PoolsAlertIcon />
+                    <p>pools alert</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <KYCAuditIcon />
+                    <p>kyc $ audit</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <DocIcon />
+                    <p>docs</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <ShopIcon />
+                    <p>shop</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <TelegramIcon />
+                    <p>telegram</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <TwitterIcon />
+                    <p>twitter</p>
+                </div>
+                <div className="flex px-6 py-4 items-center gap-3 cursor-pointer hover:bg-[#1A1A1A]">
+                    <FacebookIcon />
+                    <p>facebook</p>
                 </div>
             </div>
         </section>
