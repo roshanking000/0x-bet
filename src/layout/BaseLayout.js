@@ -5,7 +5,7 @@ import { Header } from '../components/Header'
 
 const BaseLayout = () => {
   return (
-    <div className="w-full min-h-screen flex bg-[#090909] font-['Enfonix']">
+    <div className="w-full min-h-screen flex bg-[#090909]">
       <Sidebar />
       <main className='flex flex-col w-full'>
         <Header />
