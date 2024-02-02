@@ -244,16 +244,16 @@ const AdvancedModeComponent = () => {
                         <td className="px-4">
                           <div className="flex gap-1">
                             <a href="##" target="_blank" rel="noreferrer">
-                              <WebsiteIcon />
+                              <WebsiteIcon width="16" height="16" />
                             </a>
                             <a href="##" target="_blank" rel="noreferrer">
-                              <SmallTwitterIcon />
+                              <SmallTwitterIcon width="16" height="16" />
                             </a>
                             <a href="##" target="_blank" rel="noreferrer">
-                              <SmallTelegramIcon />
+                              <SmallTelegramIcon width="16" height="16" />
                             </a>
                             <a href="##" target="_blank" rel="noreferrer">
-                              <DiscordIcon />
+                              <DiscordIcon width="16" height="16" />
                             </a>
                           </div>
                         </td>
