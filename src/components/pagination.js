@@ -4,13 +4,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 function Button2({ content, onClick, active, disabled }) {
   return (
     <button
-      className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-sm font-normal transition-colors rounded-lg
-      ${active ? 'bg-green_dark text-white' : 'text-green_dark'}
-      ${
-        !disabled
-          ? 'bg-background border border-secondary border-opacity-50 text-primary hover:bg-green_dark hover:text-white'
-          : 'bg-background border border-secondary border-opacity-50 text-primary hover:bg-green_dark hover:text-white cursor-not-allowed'
-      }
+      className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-sm font-normal transition-colors
+      ${active ? 'bg-white text-black' : 'text-white'}
+      ${!disabled
+          ? 'bg-background border border-secondary border-opacity-50 text-primary hover:bg-green_dark'
+          : 'bg-background border border-secondary border-opacity-50 text-primary hover:bg-green_dark cursor-not-allowed'
+        }
       `}
       onClick={onClick}
       disabled={disabled}
@@ -27,18 +26,18 @@ function PaginationNav1({ gotoPage, canPreviousPage, canNextPage, pageCount, pag
     let numberOfButtons = pageCount < visiblePageButtonCount ? pageCount : visiblePageButtonCount
     const pageIndices = [pageIndex]
     numberOfButtons--
-    ;[...Array(numberOfButtons)].forEach((_item, itemIndex) => {
-      const pageNumberBefore = pageIndices[0] - 1
-      const pageNumberAfter = pageIndices[pageIndices.length - 1] + 1
-      if (
-        pageNumberBefore >= 0 &&
-        (itemIndex < numberOfButtons / 2 || pageNumberAfter > pageCount - 1)
-      ) {
-        pageIndices.unshift(pageNumberBefore)
-      } else {
-        pageIndices.push(pageNumberAfter)
-      }
-    })
+      ;[...Array(numberOfButtons)].forEach((_item, itemIndex) => {
+        const pageNumberBefore = pageIndices[0] - 1
+        const pageNumberAfter = pageIndices[pageIndices.length - 1] + 1
+        if (
+          pageNumberBefore >= 0 &&
+          (itemIndex < numberOfButtons / 2 || pageNumberAfter > pageCount - 1)
+        ) {
+          pageIndices.unshift(pageNumberBefore)
+        } else {
+          pageIndices.push(pageNumberAfter)
+        }
+      })
     return pageIndices.map((pageIndexToMap) => (
       <li key={pageIndexToMap}>
         <Button2
@@ -55,8 +54,9 @@ function PaginationNav1({ gotoPage, canPreviousPage, canNextPage, pageCount, pag
         <Button2
           content={
             <div className='flex ml-1'>
-              <ChevronLeftIcon size='0.6rem' />
-              <ChevronLeftIcon size='0.6rem' className='-translate-x-1/2' />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+              </svg>
             </div>
           }
           onClick={() => gotoPage(0)}
@@ -68,8 +68,9 @@ function PaginationNav1({ gotoPage, canPreviousPage, canNextPage, pageCount, pag
         <Button2
           content={
             <div className='flex ml-1'>
-              <ChevronRightIcon size='0.6rem' />
-              <ChevronRightIcon size='0.6rem' className='-translate-x-1/2' />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
             </div>
           }
           onClick={() => gotoPage(pageCount - 1)}
@@ -98,4 +99,4 @@ const Pagination = ({ pageCount, gotoPage }) => {
   )
 }
 
-export { Pagination }
+export default Pagination;

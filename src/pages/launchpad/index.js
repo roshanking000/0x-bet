@@ -3,6 +3,7 @@ import { Progress } from 'flowbite-react';
 import clsx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
+import Pagination from "../../components/pagination";
 import { NotificationIcon, LikeIcon, KYCFailIcon, KYCSuccessIcon, WebsiteIcon, SmallTwitterIcon, SmallTelegramIcon, DiscordIcon } from "../../components/Icons";
 
 import coinIcon from "../../assets/imgs/coin_image.png";
@@ -118,7 +119,7 @@ const AllLaunchpadComponent = () => {
 const AdvancedModeComponent = () => {
   return (
     <section className="flex flex-col gap-5 font-['Sora']">
-      <div className="flex flex-col px-6">
+      <div className="flex flex-col px-6 bg-black">
         <div className="overflow-x-auto">
           <div className="w-full inline-block align-middle">
             <div className="overflow-hidden">
@@ -274,6 +275,11 @@ const AdvancedModeComponent = () => {
           </div>
         </div>
       </div>
+      <Pagination
+        pageCount={5}
+        gotoPage={(page) => {
+        }}
+      />
     </section>
   )
 }
