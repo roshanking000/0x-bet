@@ -3,10 +3,11 @@ import { Progress } from 'flowbite-react';
 import clsx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-import { NotificationIcon, LikeIcon } from "../../components/Icons";
+import { NotificationIcon, LikeIcon, KYCFailIcon, KYCSuccessIcon, WebsiteIcon, SmallTwitterIcon, SmallTelegramIcon, DiscordIcon } from "../../components/Icons";
 
 import coinIcon from "../../assets/imgs/coin_image.png";
 import bnbIcon from "../../assets/imgs/chain/BNB.png";
+import bnbSmallIcon from "../../assets/imgs/chain/BNB_small.png";
 
 const ProgressTheme = {
   base: 'bg-[#1A1A1A]',
@@ -23,8 +24,8 @@ const AllLaunchpadComponent = () => {
         <div className="w-[530px] h-12 bg-neutral-950 items-center inline-flex">
           <div className="h-12 px-3 border border-white items-center gap-5 flex">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M10.97 19.19C6.43 19.19 2.75 15.51 2.75 10.97C2.75 6.43 6.43 2.75 10.97 2.75C15.51 2.75 19.19 6.43 19.19 10.97C19.19 15.51 15.51 19.19 10.97 19.19Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M21.25 21.25L17.14 17.14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M10.97 19.19C6.43 19.19 2.75 15.51 2.75 10.97C2.75 6.43 6.43 2.75 10.97 2.75C15.51 2.75 19.19 6.43 19.19 10.97C19.19 15.51 15.51 19.19 10.97 19.19Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M21.25 21.25L17.14 17.14" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           <input type="text" className="grow shrink basis-0 self-stretch p-3 border-r border-t border-b border-white items-center gap-2.5 flex text-neutral-400 text-sm font-['Sora'] leading-tight bg-black focus:outline-0" placeholder="Search"></input>
@@ -116,7 +117,164 @@ const AllLaunchpadComponent = () => {
 
 const AdvancedModeComponent = () => {
   return (
-    <></>
+    <section className="flex flex-col gap-5 font-['Sora']">
+      <div className="flex flex-col px-6">
+        <div className="overflow-x-auto">
+          <div className="w-full inline-block align-middle">
+            <div className="overflow-hidden">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="text-base text-[#666] py-[10px] w-full border-b-[1px] border-[#666]">
+                    <th
+                      scope="col"
+                      className="text-left py-[10px]"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      HC
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        Coin
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        InitialCap
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        KYC/Audit
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        Status
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        Links
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        TGOnline
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left px-4 py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        Countdown
+                      </span>
+                    </th>
+                    <th
+                      scope="col"
+                      className="text-left py-[10px]"
+                    >
+                      <span className="cursor-pointer inline-flex items-center">
+                        Sale
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-lg text-table-td text-white">
+                  {CoinListData.map((item, index) => {
+                    return (
+                      <tr key={index} className="h-[60px] py-2">
+                        <td>
+                          <div className="flex gap-[6px] items-center py-[10px]">
+                            <img className="w-4 h-4" alt="BNB" src={bnbSmallIcon} />
+                            <p>{item.name}</p>
+                          </div>
+                        </td>
+                        <td className="px-4">
+                          {item.hc}
+                        </td>
+                        <td className="px-4">
+                          {item.coin}
+                        </td>
+                        <td className="px-4">
+                          {item.initialcap}
+                        </td>
+                        <td className="px-4">
+                          <div className="flex gap-1">
+                            <KYCFailIcon />
+                            <KYCFailIcon />
+                            <KYCFailIcon />
+                            <KYCSuccessIcon />
+                          </div>
+                        </td>
+                        <td className="px-4">
+                          <div className={clsx("flex w-fit p-2 items-center gap-[6px] border-[1px]", item.status === "upcoming" ? "border-[#F6C36A] text-[#F6C36A]" : "border-[#FE4F4C] text-[#FE4F4C]")}>
+                            {item.status === "upcoming" && (
+                              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                                <circle cx="3" cy="3" r="3" fill="currentColor" />
+                              </svg>
+                            )}
+                            <p className="text-xs leading-5">{item.status === "upcoming" ? "Upcoming" : item.percent + "%"}</p>
+                          </div>
+                        </td>
+                        <td className="px-4">
+                          <div className="flex gap-1">
+                            <a href="##" target="_blank" rel="noreferrer">
+                              <WebsiteIcon />
+                            </a>
+                            <a href="##" target="_blank" rel="noreferrer">
+                              <SmallTwitterIcon />
+                            </a>
+                            <a href="##" target="_blank" rel="noreferrer">
+                              <SmallTelegramIcon />
+                            </a>
+                            <a href="##" target="_blank" rel="noreferrer">
+                              <DiscordIcon />
+                            </a>
+                          </div>
+                        </td>
+                        <td className="px-4">
+                          {item.tgonline}
+                        </td>
+                        <td className="px-4">
+                          00:00:00:00
+                        </td>
+                        <td>
+                          00:00:00:00
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -205,4 +363,127 @@ const allLaunchpadData = [
     affiliate: true,
     affiliate_percent: 5
   }
+];
+
+const CoinListData = [
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "Fairlaunch",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "progress",
+    percent: 12,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "Fairlaunch",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "progress",
+    percent: 12,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "progress",
+    percent: 12,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
+  {
+    name: "Maga",
+    chain: "BNB",
+    hc: "150",
+    coin: "NFT",
+    initialcap: "$24M",
+    status: "upcoming",
+    percent: 0,
+    tgonline: "124/5k"
+  },
 ];
