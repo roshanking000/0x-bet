@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 function Button2({ content, onClick, active, disabled }) {
   return (

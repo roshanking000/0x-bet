@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { HomeIcon, LaunchpadIcon, PinklockIcon, AirdropIcon, StakingIcon, PrivateSaleIcon, BuyCryptoFiatIcon, BridgeIcon, LeaderBoardIcon, AntiBotIcon, MultiSenderIcon, DexviewIcon, PoolsAlertIcon, KYCAuditIcon, DocIcon, ShopIcon, TelegramIcon, TwitterIcon, FacebookIcon } from "./Icons";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="flex flex-col border-r-[1px] border-[#FFF]">
             <div className="flex p-6 justify-center items-center gap-10 bg-white">
@@ -29,7 +31,7 @@ const Sidebar = () => {
                     <HomeIcon />
                     <p>home</p>
                 </div>
-                <div className="flex px-6 py-4 justify-between items-center bg-white cursor-pointer">
+                <div className="flex px-6 py-4 justify-between items-center bg-white cursor-pointer" onClick={() => navigate("/launchpad")}>
                     <div className="flex items-center gap-3">
                         <LaunchpadIcon />
                         <p className="text-[#1A1A1A]">launchpads</p>

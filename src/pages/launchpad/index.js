@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Progress } from 'flowbite-react';
 import clsx from "clsx";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -15,10 +16,15 @@ const ProgressTheme = {
   bar: 'rounded-none',
   size: {
     'sm': 'h-3'
+  },
+  color: {
+    'red': 'bg-[#FE4F4C]'
   }
 };
 
 const AllLaunchpadComponent = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="p-6 bg-black shadow flex-col justify-center gap-8 flex">
       <div className="flex justify-between items-center gap-[100px]">
@@ -53,11 +59,11 @@ const AllLaunchpadComponent = () => {
       <div className="grid grid-cols-3 gap-10 font-['Sora']">
         {allLaunchpadData.map((item, index) => {
           return (
-            <div key={index} className="relative flex flex-col gap-6 px-4 pt-4 pb-5 border-[1px] border-[#26242C]">
+            <div key={index} className="cursor-pointer relative flex flex-col gap-6 px-4 pt-4 pb-5 border border-[#26242C]" onClick={() => navigate("/detail")}>
               {item.affiliate === true && (
                 <div className="absolute left-0 right-0 -top-5 mx-auto w-fit text-xs font-bold leading-5 text-black px-3 py-2 rounded-full border-[2px] border-[#4A3A20] bg-[#F6C36A]">Affiliate {item.affiliate_percent}%</div>
               )}
-              <div className={clsx("absolute right-4 top-4 flex p-2 items-center gap-[6px] border-[1px]", item.status === "upcoming" ? "border-[#F6C36A] text-[#F6C36A]" : item.status === "sale live" ? "border-[#7ADB78] text-[#7ADB78]" : "border-[#7F7F7F] text-[#7F7F7F]")}>
+              <div className={clsx("absolute right-4 top-4 flex p-2 items-center gap-[6px] border", item.status === "upcoming" ? "border-[#F6C36A] text-[#F6C36A]" : item.status === "sale live" ? "border-[#7ADB78] text-[#7ADB78]" : "border-[#7F7F7F] text-[#7F7F7F]")}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
                   <circle cx="3" cy="3" r="3" fill="currentColor" />
                 </svg>
@@ -232,7 +238,7 @@ const AdvancedModeComponent = () => {
                           </div>
                         </td>
                         <td className="px-4">
-                          <div className={clsx("flex w-fit p-2 items-center gap-[6px] border-[1px]", item.status === "upcoming" ? "border-[#F6C36A] text-[#F6C36A]" : "border-[#FE4F4C] text-[#FE4F4C]")}>
+                          <div className={clsx("flex w-fit p-2 items-center gap-[6px] border", item.status === "upcoming" ? "border-[#F6C36A] text-[#F6C36A]" : "border-[#FE4F4C] text-[#FE4F4C]")}>
                             {item.status === "upcoming" && (
                               <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
                                 <circle cx="3" cy="3" r="3" fill="currentColor" />
@@ -300,13 +306,13 @@ const LaunchpadPage = () => {
           Current Presales
         </p>
         <div className="flex w-full text-center">
-          <div className={clsx("text-sm uppercase p-4 border-[1px] border-[#FFF] w-1/3 cursor-pointer", currentTab === "ALL LAUNCHPADS" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("ALL LAUNCHPADS")}>
+          <div className={clsx("text-sm uppercase p-4 border border-[#FFF] w-1/3 cursor-pointer", currentTab === "ALL LAUNCHPADS" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("ALL LAUNCHPADS")}>
             All launchpads
           </div>
-          <div className={clsx("text-sm uppercase p-4 border-[1px] border-[#FFF] w-1/3 cursor-pointer", currentTab === "ADVANCED MODE" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("ADVANCED MODE")}>
+          <div className={clsx("text-sm uppercase p-4 border border-[#FFF] w-1/3 cursor-pointer", currentTab === "ADVANCED MODE" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("ADVANCED MODE")}>
             Advanced Mode
           </div>
-          <div className={clsx("text-sm uppercase p-4 border-[1px] border-[#FFF] w-1/3 cursor-pointer", currentTab === "MY CONTRIBUTIONS" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("MY CONTRIBUTIONS")}>
+          <div className={clsx("text-sm uppercase p-4 border border-[#FFF] w-1/3 cursor-pointer", currentTab === "MY CONTRIBUTIONS" ? "text-[#1A1A1A] bg-[#FFF]" : "text-[#999] bg-[#000]")} onClick={() => setCurrentTab("MY CONTRIBUTIONS")}>
             My Contributions
           </div>
         </div>
