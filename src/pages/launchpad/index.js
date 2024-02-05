@@ -300,7 +300,7 @@ const LaunchpadPage = () => {
   const [currentTab, setCurrentTab] = useState("ALL LAUNCHPADS");
 
   return (
-    <section className="flex flex-col gap-6 px-[130px] py-[72px]">
+    <section className="flex flex-col gap-6 py-[72px]">
       <div className="flex flex-col gap-[61px]">
         <p className="text-[32px] leading-5 text-[#FFF] uppercase">
           Current Presales

@@ -25,7 +25,7 @@ const ProgressTheme = {
 
 const Detail = () => {
   return (
-    <section className="flex gap-5 px-[130px] py-12 text-white font-['Sora']">
+    <section className="flex gap-5 py-12 text-white font-['Sora']">
       <div className="flex flex-col gap-4 w-2/3">
         <div className="flex p-6 flex-col justify-center gap-8 bg-black">
           <div className="flex justify-between items-center">

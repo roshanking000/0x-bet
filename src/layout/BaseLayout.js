@@ -1,17 +1,22 @@
 import { Outlet } from 'react-router-dom'
 
-import Sidebar from '../components/Sidebar'
+import { SidebarProvider } from "../context/SidebarContext";
+import SidebarComponent from '../components/Sidebar'
 import { Header } from '../components/Header'
 
 const BaseLayout = () => {
   return (
-    <div className="w-full min-h-screen flex bg-[#090909]">
-      <Sidebar />
-      <main className='flex flex-col w-full'>
+    <SidebarProvider>
+      <div className="w-full min-h-screen flex flex-col bg-[#090909]">
         <Header />
-        <Outlet />
-      </main>
-    </div>
+        <section className='flex w-full pt-[100px]'>
+          <SidebarComponent />
+          <main className="mx-auto sm:px-[130px] px-4">
+            <Outlet />
+          </main>
+        </section>
+      </div>
+    </SidebarProvider>
   )
 }
 
