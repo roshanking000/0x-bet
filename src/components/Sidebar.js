@@ -13,7 +13,7 @@ const SidebarTheme = {
         collapsed: {
             on: "w-24"
         },
-        inner: "px-6 py-3 gap-1 text-sm font-normal uppercase text-[#999] bg-[#090909] border-r-[1px] border-[#FFF]"
+        inner: "h-full overflow-y-auto px-6 py-3 gap-1 text-sm font-normal uppercase text-[#999] bg-[#090909] border-r-[1px] border-[#FFF]"
     },
     item: {
         base: "flex px-2 py-2 items-center gap-3 cursor-pointer",
@@ -35,10 +35,11 @@ const SidebarComponent = () => {
     }, [setCurrentPage])
 
     return (
-        <section className={clsx("lg:!block", !isSidebarOpenOnSmallScreens ? "hidden" : "fixed z-50")}>
+        <section className={clsx("lg:!block z-40", !isSidebarOpenOnSmallScreens ? "hidden" : "")}>
             <Sidebar
                 theme={SidebarTheme}
                 collapsed={isSidebarOpenOnSmallScreens && !isSmallScreen()}
+                className="fixed left-0 top-0 pt-[100px] duration-75"
             >
                 <Sidebar.Items>
                     <Sidebar.ItemGroup>

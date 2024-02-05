@@ -61,7 +61,6 @@ export const TokenMetrics = () => {
       show: true,
       fontSize: '14px',
       fontFamily: "Sora",
-      offsetY: 50,
       markers: {
         width: 31,
         height: 14,
@@ -73,5 +72,5 @@ export const TokenMetrics = () => {
   };
   const series = [30, 24, 18, 12, 9, 7];
 
-  return <Chart className="w-3/4" height={305} options={options} series={series} type="donut" />;
+  return <Chart className="sm:w-3/4 w-[350px]" height={305} options={options} series={series} type="donut" />;
 }

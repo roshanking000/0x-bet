@@ -4,7 +4,7 @@ const DashboardPage = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="flex flex-col gap-[100px] py-[72px]">
+        <section className="flex flex-col gap-[100px] py-[72px] sm:max-w-7xl mx-auto">
             <section className="flex flex-col gap-[52px]">
                 <div className="flex flex-col gap-[52px]">
                     <div className="flex flex-col gap-8 uppercase text-[#FFF]">

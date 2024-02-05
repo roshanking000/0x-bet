@@ -187,9 +187,9 @@ export const EthereumIcon = () => {
   )
 }
 
-export const NotificationIcon = () => {
+export const NotificationIcon = ({ data }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill={data === true ? "#FE4F4C" : "none"}>
       <path d="M10.0166 2.42499C7.25829 2.42499 5.01662 4.66665 5.01662 7.42499V9.83332C5.01662 10.3417 4.79995 11.1167 4.54162 11.55L3.58328 13.1417C2.99162 14.125 3.39995 15.2167 4.48328 15.5833C8.07495 16.7833 11.95 16.7833 15.5416 15.5833C16.55 15.25 16.9916 14.0583 16.4416 13.1417L15.4833 11.55C15.2333 11.1167 15.0166 10.3417 15.0166 9.83332V7.42499C15.0166 4.67499 12.7666 2.42499 10.0166 2.42499Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" />
       <path d="M11.5583 2.66664C11.3 2.59164 11.0333 2.5333 10.7583 2.49997C9.95831 2.39997 9.19164 2.4583 8.47498 2.66664C8.71664 2.04997 9.31664 1.61664 10.0166 1.61664C10.7166 1.61664 11.3166 2.04997 11.5583 2.66664Z" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12.5167 15.8834C12.5167 17.2584 11.3917 18.3834 10.0167 18.3834C9.33339 18.3834 8.70006 18.1 8.25006 17.65C7.80006 17.2 7.51672 16.5667 7.51672 15.8834" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" />
@@ -197,9 +197,9 @@ export const NotificationIcon = () => {
   )
 }
 
-export const LikeIcon = () => {
+export const LikeIcon = ({ data }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <svg className="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill={data === true ? "#FE4F4C" : "none"}>
       <path d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.075 1.66663 7.24165C1.66663 4.66665 3.74163 2.58331 6.29996 2.58331C7.81663 2.58331 9.15829 3.31665 9.99996 4.44998C10.8416 3.31665 12.1916 2.58331 13.7 2.58331C16.2583 2.58331 18.3333 4.66665 18.3333 7.24165C18.3333 13.075 12.9333 16.5166 10.5166 17.3416Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
@@ -287,7 +287,7 @@ export const CopyIcon = () => {
 export const ETHIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <g clip-path="url(#clip0_1_998)">
+      <g clipPath="url(#clip0_1_998)">
         <path d="M12.0008 23.2C18.1864 23.2 23.2008 18.1856 23.2008 12C23.2008 5.81446 18.1864 0.800049 12.0008 0.800049C5.81519 0.800049 0.800781 5.81446 0.800781 12C0.800781 18.1856 5.81519 23.2 12.0008 23.2Z" fill="#E6E6E6" />
         <path d="M11.9984 21.6C17.3004 21.6 21.5984 17.302 21.5984 12C21.5984 6.69809 17.3004 2.40002 11.9984 2.40002C6.6965 2.40002 2.39844 6.69809 2.39844 12C2.39844 17.302 6.6965 21.6 11.9984 21.6Z" fill="#1A1A1A" />
         <path d="M15.9174 12.8828C15.9004 12.8817 12.0521 15.1622 12.0017 15.1817C11.9904 15.1752 8.10831 12.8776 8.08984 12.8799C8.09924 12.8937 11.9991 18.4 12.0017 18.4C12.0044 18.4 15.9174 12.8828 15.9174 12.8828Z" fill="#E6E6E6" />

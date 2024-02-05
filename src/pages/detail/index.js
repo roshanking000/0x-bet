@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Accordion, Progress, Checkbox, Label } from 'flowbite-react';
 
 import { TokenMetrics } from "../../components/detail/TokenMetrics";
 import { WebsiteIcon, SmallTwitterIcon, SmallTelegramIcon, DiscordIcon, NotificationIcon, LikeIcon, CopyIcon, ETHIcon } from "../../components/Icons";
+import { getDisplayString } from "../../utils";
 
 import coinIcon from "../../assets/imgs/coin_image.png";
 import bnbIcon from "../../assets/imgs/chain/BNB.png";
@@ -24,18 +27,21 @@ const ProgressTheme = {
 };
 
 const Detail = () => {
+  const [isNotificationEnabled, setIsNotificationEnabled] = useState(false);
+  const [isLikeEnabled, setIsLikeEnabled] = useState(false);
+
   return (
-    <section className="flex gap-5 py-12 text-white font-['Sora']">
-      <div className="flex flex-col gap-4 w-2/3">
-        <div className="flex p-6 flex-col justify-center gap-8 bg-black">
+    <section className="flex sm:flex-row flex-col gap-5 py-12 text-white font-['Sora'] sm:max-w-7xl mx-auto">
+      <div className="flex flex-col gap-4 sm:w-2/3">
+        <div className="flex sm:p-6 p-2 flex-col justify-center gap-8 bg-black">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <div className="relative w-16 h-16">
+            <div className="flex items-center sm:gap-4 gap-1">
+              <div className="relative sm:w-16 sm:h-16 w-12 h-12">
                 <img alt="" src={coinIcon} />
                 <img className="absolute right-0 bottom-0 w-6 h-6" alt="BNB" src={bnbIcon} />
               </div>
-              <div className="flex flex-col justify-center gap-4">
-                <p className="text-xl font-extrabold leading-5 uppercase">Hydra Presale FL</p>
+              <div className="flex flex-col justify-center sm:gap-4">
+                <p className="sm:text-xl text-base font-extrabold leading-5 uppercase">Hydra Presale FL</p>
                 <div className="flex gap-1">
                   <a href="##" target="_blank" rel="noreferrer">
                     <WebsiteIcon width="24" height="24" />
@@ -52,9 +58,13 @@ const Detail = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <NotificationIcon />
-              <LikeIcon />
+            <div className="flex items-center sm:gap-4 gap-1">
+              <div onClick={() => setIsNotificationEnabled(!isNotificationEnabled)}>
+                <NotificationIcon data={isNotificationEnabled} />
+              </div>
+              <div onClick={() => setIsLikeEnabled(!isLikeEnabled)}>
+                <LikeIcon data={isLikeEnabled} />
+              </div>
               <div className="flex p-2 items-center gap-[6px] border border-[#F6C36A] text-[#F6C36A]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
                   <circle cx="3" cy="3" r="3" fill="currentColor" />
@@ -65,7 +75,7 @@ const Detail = () => {
           </div>
           <p className="text-sm">HYDRA (九頭蛇): THE FIRST EVER MULTICHAIN MEME - A NEW ARBITRAGE META! ETH, BSC, SOL, ARB, MATIC, FTM & AVAX! The first ever multichain (7 chains day 1) presale project starting the arbitrage meta 🎯 Top Defi marketing teams & developers from 100M+tokens📈 0% Tax 📣 | Top CT and KOL support🏖️| Bridged multichain trading👨‍💻| Telegram&buybot trending on 7 chains🎩| CMC+CG Fastrack🚦 Hydra wallet, swap & bridge🌠 | Tier 1&2 Exchanges⭐️| Audited</p>
           <iframe
-            className="w-full h-[480px]"
+            className="w-full sm:h-[480px]"
             src={`https://www.youtube.com/embed/KaLxCiilHns`}
             allow="accelerometer; 
             autoplay; 
@@ -74,19 +84,22 @@ const Detail = () => {
             gyroscope; 
             picture-in-picture; 
             web-share"
-            allowfullscreen
+            allowFullScreen
             title="Embedded youtube"
           />
           <div className="flex flex-col justify-center gap-5 text-sm">
-            <div className="flex justify-between items-center">
-              <p className="leading-5">Manual Listing</p>
+            <div className="flex justify-between gap-4 items-center">
+              <p className="leading-5 text-nowrap">Manual Listing</p>
               <p className="text-[#999] leading-5">Liquidity will not be automatically added!</p>
             </div>
             <div className="flex justify-between items-center">
               <p className="leading-5">Presale Address</p>
-              <div className="flex items-center gap-3">
-                <p className="leading-5 underline">0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278</p>
-                <div className="cursor-pointer">
+              <div className="flex items-center sm:gap-3 gap-1">
+                <p className="leading-5 underline">{getDisplayString("0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278", 6, 4)}</p>
+                <div className="cursor-pointer" onClick={() => {
+                  toast.success("Copied successfully!");
+                  navigator.clipboard.writeText("0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278");
+                }}>
                   <CopyIcon />
                 </div>
               </div>
@@ -106,8 +119,11 @@ const Detail = () => {
             <div className="flex justify-between items-center">
               <p className="leading-5">Token Address</p>
               <div className="flex items-center gap-3">
-                <p className="leading-5 underline">0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278</p>
-                <div className="cursor-pointer">
+                <p className="leading-5 underline">{getDisplayString("0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278", 6, 4)}</p>
+                <div className="cursor-pointer" onClick={() => {
+                  toast.success("Copied successfully!");
+                  navigator.clipboard.writeText("0x9EbE423416e7E86B8039FC94eF7B7C5FbDB9a278");
+                }}>
                   <CopyIcon />
                 </div>
               </div>
@@ -142,7 +158,7 @@ const Detail = () => {
             </div>
           </div>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-4 bg-black">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-4 bg-black">
           <Accordion className="rounded-none border-black divide-y-0 bg-black">
             <Accordion.Panel>
               <Accordion.Title className="text-lg text-white font-semibold leading-8 bg-black hover:bg-black !rounded-none px-0 py-0 focus:ring-0">Affiliate Program</Accordion.Title>
@@ -173,11 +189,11 @@ const Detail = () => {
             </Accordion.Panel>
           </Accordion>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-4 bg-black">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-4 bg-black">
           <p className="text-lg font-semibold text-white">Token Metrics</p>
           <TokenMetrics />
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-4 bg-black">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-4 bg-black">
           <div className="flex items-center justify-between gap-4">
             <p className="text-lg font-semibold leading-8">Lock records</p>
             <Link to="" className="text-sm leading-5 underline text-[#FE4F4C]">View All</Link>
@@ -193,13 +209,12 @@ const Detail = () => {
                 </th>
                 <th
                   scope="col"
-                  className="text-left px-4 pb-[10px]"
+                  className="text-left sm:px-4 px-2 pb-[10px]"
                 >
                   Unlock time(UTC)
                 </th>
                 <th
                   scope="col"
-                  className="text-left px-4 pb-[10px]"
                 >
                 </th>
               </tr>
@@ -208,13 +223,13 @@ const Detail = () => {
               {LockRecordData.map((item, index) => {
                 return (
                   <tr key={index} className="py-[10px]">
-                    <td className="pr-4">
+                    <td className="sm:pr-4 pr-2">
                       {item.amount}
                     </td>
-                    <td className="px-4">
+                    <td className="sm:px-4 px-2">
                       {item.unlock_time}
                     </td>
-                    <td className="text-right pl-4">
+                    <td className="text-right sm:pl-4 pl-2">
                       <Link to="" className="text-sm leading-5 underline text-[#FE4F4C]">View</Link>
                     </td>
                   </tr>
@@ -223,7 +238,7 @@ const Detail = () => {
             </tbody>
           </table>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-5 bg-black">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-5 bg-black">
           <p className="text-lg font-semibold leading-8">Frequently Asked Question</p>
           <div className="flex flex-col justify-center gap-4">
             <Accordion collapseAll className="rounded-none border-[#26242C] divide-y-0 bg-[#1A1A1A]">
@@ -288,23 +303,23 @@ const Detail = () => {
             </Accordion>
           </div>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-8 bg-black">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-8 bg-black">
           <div className="flex flex-col gap-4 items-center">
             <div className="flex items-center justify-between gap-4 w-full">
               <p className="text-lg font-semibold leading-8">Comments (0)</p>
               <Link to="" className="text-sm leading-5 underline text-[#FE4F4C]">View All</Link>
             </div>
-            <div className="flex items-center gap-5 w-full">
-              <div className="w-16 h-16">
+            <div className="flex items-center sm:gap-5 gap-2 w-full">
+              <div className="sm:min-w-16 sm:min-h-16 sm:w-16 sm:h-16 min-w-12 min-h-12 w-12 h-12">
                 <img alt="" src={coinIcon} />
               </div>
-              <input type="text" className="flex-1 h-[56px] p-3 border border-white bg-black text-[#999] focus:ring-0 focus:border-white" placeholder="Enter your email address" />
-              <button type="button" className="bg-[#FE4F4C] text-xs font-bold leading-5 uppercase text-[#1A1A1A] font-['Source+Code+Pro'] px-4 py-3 h-[56px]">Comment</button>
+              <input type="text" className="flex-1 sm:h-[56px] h-12 sm:p-3 p-1 border border-white bg-black text-[#999] focus:ring-0 focus:border-white" placeholder="Enter your email address" />
+              <button type="button" className="bg-[#FE4F4C] text-xs font-bold leading-5 uppercase text-[#1A1A1A] font-['Source+Code+Pro'] sm:px-4 px-2 py-3 sm:h-[56px] h-12">Comment</button>
             </div>
           </div>
           <div className="flex flex-col gap-5 text-white text-sm">
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full">
+              <div className="min-w-8 min-h-8 w-8 h-8 rounded-full">
                 <img alt="" src={user1Icon} />
               </div>
               <div className="flex flex-col justify-center">
@@ -317,7 +332,7 @@ const Detail = () => {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full">
+              <div className="min-w-8 min-h-8 w-8 h-8 rounded-full">
                 <img alt="" src={user2Icon} />
               </div>
               <div className="flex flex-col justify-center">
@@ -330,7 +345,7 @@ const Detail = () => {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full">
+              <div className="min-w-8 min-h-8 w-8 h-8 rounded-full">
                 <img alt="" src={user3Icon} />
               </div>
               <div className="flex flex-col justify-center">
@@ -343,7 +358,7 @@ const Detail = () => {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full">
+              <div className="min-w-8 min-h-8 w-8 h-8 rounded-full">
                 <img alt="" src={user4Icon} />
               </div>
               <div className="flex flex-col justify-center">
@@ -356,7 +371,7 @@ const Detail = () => {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-full">
+              <div className="min-w-8 min-h-8 w-8 h-8 rounded-full">
                 <img alt="" src={user5Icon} />
               </div>
               <div className="flex flex-col justify-center">
@@ -371,10 +386,10 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 w-1/3 text-sm text-white">
-        <div className="relative px-6 pt-7 pb-5 bg-black border border-orange-300 border-opacity-30 flex-col justify-start items-start gap-6 inline-flex">
+      <div className="flex flex-col gap-4 sm:w-1/3 text-sm text-white">
+        <div className="relative sm:px-6 px-2 pt-7 pb-5 bg-black border border-orange-300 border-opacity-30 flex-col justify-start items-start gap-6 inline-flex">
           <div className="absolute left-0 right-0 -top-5 mx-auto w-fit text-xs font-bold leading-5 text-black px-3 py-2 rounded-full border-[2px] border-[#4A3A20] bg-[#F6C36A]">Affiliate 5%</div>
-          <div className="self-stretch px-3 py-2 bg-zinc-900 justify-start items-center gap-6 inline-flex">
+          <div className="self-stretch sm:px-3 px-1 py-2 bg-zinc-900 justify-start items-center gap-6 inline-flex">
             <div className="grow shrink basis-0 h-8 justify-start items-center gap-2 flex">
               <div className="grow shrink basis-0 text-white text-sm font-semibold leading-loose">Make sure the website is pinksale.finance!</div>
             </div>
@@ -433,7 +448,7 @@ const Detail = () => {
           </div>
           <p className="text-white text-xs font-bold font-['Source+Code+Pro'] leading-tight tracking-[0.42px]">Affiliate detail</p>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-5 justify-center bg-black text-sm">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-5 justify-center bg-black text-sm">
           <div className="flex justify-between items-center">
             <p>Status</p>
             <p>incoming</p>
@@ -451,7 +466,7 @@ const Detail = () => {
             <p>5 ETH</p>
           </div>
         </div>
-        <div className="flex px-6 pt-4 pb-6 flex-col gap-4 bg-black text-sm text-white">
+        <div className="flex sm:px-6 px-2 pt-4 pb-6 flex-col gap-4 bg-black text-sm text-white">
           <div className="flex items-center justify-between gap-4">
             <p className="text-lg font-semibold">Newsletters</p>
             <div className="flex items-center gap-2">

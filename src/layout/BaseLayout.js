@@ -11,7 +11,7 @@ const BaseLayout = () => {
         <Header />
         <section className='flex w-full pt-[100px]'>
           <SidebarComponent />
-          <main className="mx-auto sm:px-[130px] px-4">
+          <main className="sm:ml-64 w-full px-2">
             <Outlet />
           </main>
         </section>
