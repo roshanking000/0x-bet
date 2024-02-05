@@ -141,7 +141,7 @@ const AdvancedModeComponent = () => {
       <div className="flex flex-col px-6 bg-black">
         <div className="overflow-x-auto">
           <div className="w-full inline-block align-middle">
-            <div className="overflow-hidden">
+            <div className="overflow-auto">
               <table className="min-w-full">
                 <thead>
                   <tr className="text-base text-[#666] py-[10px] w-full border-b-[1px] border-[#666]">
